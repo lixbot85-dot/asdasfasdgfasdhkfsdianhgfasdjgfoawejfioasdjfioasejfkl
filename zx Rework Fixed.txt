@@ -15,6 +15,7 @@ local JobId = game.JobId
 local UserInputService = game:GetService("UserInputService")
 local TeleportService = game:GetService("TeleportService")
 local PlayerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
+local MarketplaceService = game:GetService("MarketplaceService")
 local gameMap = workspace.Map
 local VolumeSet = 1
 local customMaxStamina = 100
@@ -32,6 +33,20 @@ local originalStaminaLoss = nil
 local originalSprintSpeed = nil
 local IsSurvivor = false
 local IsKiller = false
+local GameName = "N/A"
+
+--//GameName\\--
+
+task.spawn(function()
+    local success, info = pcall(function() return MarketplaceService:GetProductInfo(game.PlaceId) end)
+    if success and info then
+        GameName = info.Name
+    else
+        Notif("Aviso", "Falhado ao detectar nome do jogo!", 5, 4590657391)
+        GameName = "Unknown Game"
+    end
+end)
+
 --// VersionMismatch \\--
 
 --73184977359354
@@ -65,6 +80,15 @@ elseif PlaceId == "106912127846895" then -- Eternity
 VersionMismatch = true
 elseif PlaceId == "77058277643101" then -- Alphasaken
 VersionMismatch = true
+end
+
+if VersionMismatch == true then
+		game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "Game version mismatch",
+			Text = "Jogo não está com suporte e talvez tenha anti-cheats.",
+			Duration = 999,
+			Button1 = "Ok",
+		})
 end
 
 --// URL LOADER\\--
@@ -111,6 +135,24 @@ ExecutorLimited = true
 
 end
 
+if executor == "KRNL" then
+
+ExecutorLimited = false
+
+end
+
+if executor == "Vulcan" then
+
+ExecutorLimited = true
+
+end
+
+if executor == "Punk X" then
+
+ExecutorLimited = true
+
+end
+
 if executor == "Solara" then
 
 ExecutorLimited = true
@@ -121,6 +163,12 @@ end
 if executor == "Trigon" then
 
 ExecutorLimited = true
+
+end
+
+if executor == "Delta" then
+
+ExecutorLimited = false
 
 end
 
@@ -386,6 +434,15 @@ local antiSlow=false
 local antiBlindness=true
 local antiSubspace=true
 
+local response = request({
+    Url = "https://github.com/lixbot85-dot/zxmusics/raw/refs/heads/main/Eternal%20Hope,%20Eternal%20Fight%20V2%20_%20ROBLOX%20FORSAKEN%20%5BL-VUX3Z7ss8%5D.mp3",
+    Method = "GET"
+})
+
+if response.StatusCode == 200 then
+    writefile("A GRAVE SOUL (NOW, RUN).mp3", response.Body)
+end
+
 local survivorutil = {
     "007n7",
     "BuildermanSentry",
@@ -410,6 +467,7 @@ Window:AddMinimizeButton({
 
 local Tab1 = Window:MakeTab({"Botões", "archive"})
 local Section = Tab1:AddSection({"Executor: "..executor})
+local Section = Tab1:AddSection({"Game: "..GameName})
 
 Tab1:AddButton({"auto-Gerador", function(Value)
 
@@ -529,6 +587,8 @@ end)
 
 end --Fim de precisa de Decompilação--
 
+local Paragraph = Tab1:AddParagraph({"Anti-stun", "Ele faz você usar ataques mesmo/ncom stun."})
+
 Tab1:AddToggle({
     Name = "Anti-stun",
     Default = false,
@@ -564,6 +624,7 @@ end)
 })
 
 local Tab2 = Window:MakeTab({"Desbloqueadores", "archive"})
+local Paragraph = Tab2:AddParagraph({"Aviso", "Desbloqueadores estão sendo detectados/ne pode banir você se tiver anti-cheat!"})
 
 Tab2:AddButton({"Wave", function(Value)
 	UnlockEmote("Wave")
@@ -1092,7 +1153,21 @@ Tab6:AddButton({"FE black hole", function(Value)
 
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BringFlingPlayers"))("More Scripts: t.me/arceusxscripts")
 
-end})                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+end})      
+
+Tab6:AddButton({"Undertale Status", function(Value)
+
+	loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Undertale-GUI-80513"))
+
+end})                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+
+local Paragraph = Tab1:AddParagraph({"Controls", "X para lançar um rocket/nSpace para bunnyhopping/nON OFF para trocar o modo/nDestroy apaga o script."})
+
+Tab6:AddButton({"Source Engine Movement", function(Value)
+
+	loadstring(game:HttpGet("https://github.com/lixbot85-dot/asdasfasdgfasdhkfsdianhgfasdjgfoawejfioasdjfioasejfkl/raw/refs/heads/main/sourceenginemovement.lua"))
+
+end})  
 
 local Tab7 = Window:MakeTab({"Jogos", "brush"})
 
@@ -1154,6 +1229,8 @@ end})
 
 task.wait(6)
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/mehhovcki-dev/roblox-scripts/refs/heads/main/forsaken.lua"))()
+--[[
 if VersionMismatch == true then
 		game:GetService("StarterGui"):SetCore("SendNotification", {
 			Title = "Game version mismatch",
@@ -1162,7 +1239,7 @@ if VersionMismatch == true then
 			Button1 = "Ok",
 		})
 end
-
+]]--
 if ExecutorLimited == true then
 
 Notif("Aviso", "Seu executor não tem suporte para decompilador, algumas opções estão desabilitadas.", 5, 4590657391)
