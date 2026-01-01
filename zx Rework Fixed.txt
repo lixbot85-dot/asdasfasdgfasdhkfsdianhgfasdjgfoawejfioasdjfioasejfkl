@@ -16,7 +16,6 @@ local UserInputService = game:GetService("UserInputService")
 local TeleportService = game:GetService("TeleportService")
 local PlayerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
 local MarketplaceService = game:GetService("MarketplaceService")
-local gameMap = workspace.Map
 local VolumeSet = 1
 local customMaxStamina = 100
 local customStaminaGain = 20
@@ -80,15 +79,6 @@ elseif PlaceId == "106912127846895" then -- Eternity
 VersionMismatch = true
 elseif PlaceId == "77058277643101" then -- Alphasaken
 VersionMismatch = true
-end
-
-if VersionMismatch == true then
-		game:GetService("StarterGui"):SetCore("SendNotification", {
-			Title = "Game version mismatch",
-			Text = "Jogo não está com suporte e talvez tenha anti-cheats.",
-			Duration = 999,
-			Button1 = "Ok",
-		})
 end
 
 --// URL LOADER\\--
@@ -433,15 +423,6 @@ local antiStun=false
 local antiSlow=false
 local antiBlindness=true
 local antiSubspace=true
-
-local response = request({
-    Url = "https://github.com/lixbot85-dot/zxmusics/raw/refs/heads/main/Eternal%20Hope,%20Eternal%20Fight%20V2%20_%20ROBLOX%20FORSAKEN%20%5BL-VUX3Z7ss8%5D.mp3",
-    Method = "GET"
-})
-
-if response.StatusCode == 200 then
-    writefile("A GRAVE SOUL (NOW, RUN).mp3", response.Body)
-end
 
 local survivorutil = {
     "007n7",
@@ -857,6 +838,12 @@ Tab3:AddButton({"Infinite Yield", function(Value)
 	end)
 end})
 
+Tab3:AddButton({"Infinite Yield Modificado", function(Value)
+	pcall(function()
+		loadstring(game:HttpGet("https://github.com/lixbot85-dot/asdasfasdgfasdhkfsdianhgfasdjgfoawejfioasdjfioasejfkl/raw/refs/heads/main/infyieldmod.lua"))()
+	end)
+end})
+
 --//  Music  \\--
 --     V2      --
 --\\   Yee   //--
@@ -1059,39 +1046,39 @@ end})
 local Section = Tab4:AddSection({"Sugary Spire OST"})
 
 Tab4:AddButton({"Blue Licorice", function(Value)
-	--MusicPlayer("PararOSom", VolumeSet)
+	MusicPlayer("PararOSom", VolumeSet)
 	MusicPlayer("126464446044869", VolumeSet)
 end})
 
 local Section = Tab4:AddSection({"audios"})
 
 Tab4:AddButton({"SpookySkarySkeletonsFUnk", function(Value)
-	--MusicPlayer("PararOSom", VolumeSet)
+	MusicPlayer("PararOSom", VolumeSet)
 	MusicPlayer("100828050594137", VolumeSet)
 end})
 
 Tab4:AddButton({"Jumper FUNK", function(Value)
-	--MusicPlayer("PararOSom", VolumeSet)
+	MusicPlayer("PararOSom", VolumeSet)
 	MusicPlayer("140698669598986", VolumeSet)
 end})
 
 Tab4:AddButton({"RAGE", function(Value)
-	--MusicPlayer("PararOSom", VolumeSet)
+	MusicPlayer("PararOSom", VolumeSet)
 	MusicPlayer("87429130418599", VolumeSet)
 end})
 
 Tab4:AddButton({"Miss The Quiet", function(Value)
-	--MusicPlayer("PararOSom", VolumeSet)
+	MusicPlayer("PararOSom", VolumeSet)
 	MusicPlayer("83287682363564", VolumeSet)
 end})
 
 Tab4:AddButton({"Pizza TIME!", function(Value)
-	--MusicPlayer("PararOSom", VolumeSet)
+	MusicPlayer("PararOSom", VolumeSet)
 	MusicPlayer("110976323938779", VolumeSet)
 end})
 
 Tab4:AddButton({"Pizza [Ayo Remix]", function(Value)
-	--MusicPlayer("PararOSom", VolumeSet)
+	MusicPlayer("PararOSom", VolumeSet)
 	MusicPlayer("115695829094284", VolumeSet)
 end})
 
@@ -1229,8 +1216,8 @@ end})
 
 task.wait(6)
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/mehhovcki-dev/roblox-scripts/refs/heads/main/forsaken.lua"))()
---[[
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/mehhovcki-dev/roblox-scripts/refs/heads/main/forsaken.lua"))()
+
 if VersionMismatch == true then
 		game:GetService("StarterGui"):SetCore("SendNotification", {
 			Title = "Game version mismatch",
@@ -1239,7 +1226,7 @@ if VersionMismatch == true then
 			Button1 = "Ok",
 		})
 end
-]]--
+
 if ExecutorLimited == true then
 
 Notif("Aviso", "Seu executor não tem suporte para decompilador, algumas opções estão desabilitadas.", 5, 4590657391)
