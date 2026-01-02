@@ -1272,12 +1272,8 @@ if not latestVersionInfo.kick == "nil" then
 			LocalPlayer:Kick()
 end
 end
-if latestVersionInfo.AutoUpdate == "true" then
-
-
-
-end
 end
 
 end
+
 
