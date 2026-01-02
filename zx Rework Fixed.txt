@@ -1266,7 +1266,7 @@ loadstring(game:HttpGet("https://github.com/lixbot85-dot/asdasfasdgfasdhkfsdianh
 end
 end
 if latestVersionInfo.ScriptON == "false" then
-			LocalPlayer:Kick()
+			LocalPlayer:Kick(latestVersionInfo.kick)
 end
 if latestVersionInfo.AutoUpdate == "true" then
 
