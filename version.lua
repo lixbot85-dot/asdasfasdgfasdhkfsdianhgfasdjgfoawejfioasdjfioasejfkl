@@ -3,5 +3,5 @@
 	"Announcement": "",
 	"AutoUpdate": "true",
 	"ScriptON": "true",
-	"kick": "reason"
+	"kick": "nil"
 }
