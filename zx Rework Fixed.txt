@@ -33,7 +33,7 @@ local originalSprintSpeed = nil
 local IsSurvivor = false
 local IsKiller = false
 local GameName = "N/A"
-local currentVersion = "0.0.1"
+local currentVersion = "0.0.2"
 
 --// Compatibility Checks \\--
 local clipboardFunc = getclipboard or setclipboard or nil
@@ -460,6 +460,7 @@ Window:AddMinimizeButton({
 local Tab1 = Window:MakeTab({"Botões", "archive"})
 local Section = Tab1:AddSection({"Executor: "..executor})
 local Section = Tab1:AddSection({"Game: "..GameName})
+local Section = Tab1:AddSection({"Versão "..currentVersion})
 
 Tab1:AddButton({"auto-Gerador", function(Value)
 
