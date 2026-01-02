@@ -33,7 +33,7 @@ local originalSprintSpeed = nil
 local IsSurvivor = false
 local IsKiller = false
 local GameName = "N/A"
-local currentVersion = "0.0.2"
+local currentVersion = "0.0.3"
 
 --// Compatibility Checks \\--
 local clipboardFunc = getclipboard or setclipboard or nil
@@ -1269,7 +1269,7 @@ end
 end
 if latestVersionInfo.ScriptON == "false" then
 if not latestVersionInfo.kick == "nil" then
-			LocalPlayer:Kick(latestVersionInfo.kick)
+			LocalPlayer:Kick()
 end
 end
 if latestVersionInfo.AutoUpdate == "true" then
@@ -1280,3 +1280,4 @@ end
 end
 
 end
+
