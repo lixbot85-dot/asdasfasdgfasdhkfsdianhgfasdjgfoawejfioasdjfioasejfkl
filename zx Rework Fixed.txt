@@ -1262,6 +1262,7 @@ if success then
 if latestVersionInfo.AutoUpdate == "true" then
 
 loadstring(game:HttpGet("https://github.com/lixbot85-dot/asdasfasdgfasdhkfsdianhgfasdjgfoawejfioasdjfioasejfkl/raw/refs/heads/main/zx%20Rework%20Fixed.txt"))()
+return
 
 end
 end
@@ -1278,4 +1279,3 @@ end
 end
 
 end
-
