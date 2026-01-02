@@ -1,5 +1,7 @@
 {
 	"Version": "0.0.1",
 	"Announcement": "",
-	"ScriptON": "true"
+	"AutoUpdate": "true",
+	"ScriptON": "true",
+	"kick": "reason"
 }
