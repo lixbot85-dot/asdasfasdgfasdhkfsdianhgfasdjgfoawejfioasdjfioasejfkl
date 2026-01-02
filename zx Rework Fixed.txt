@@ -33,6 +33,17 @@ local originalSprintSpeed = nil
 local IsSurvivor = false
 local IsKiller = false
 local GameName = "N/A"
+local currentVersion = "0.0.1"
+
+--// Compatibility Checks \\--
+local clipboardFunc = getclipboard or setclipboard or nil
+local canReadSource = true
+
+if clipboardFunc == nil then
+Notif("Aviso", "Clipboard não suportado.", 5, 4590657391)
+else
+Notif("Aviso", "Clipboard suportado.", 5, 4590657391)
+end
 
 --//GameName\\--
 
@@ -826,6 +837,12 @@ Tab2:AddTextBox({
 
 local Tab3 = Window:MakeTab({"Preciso", "cherry"})
 
+Tab3:AddButton({"Dex(Decompiler built in)", function(Value)
+	pcall(function()
+loadstring(game:HttpGet("https://github.com/OfficiallyMelon/BetterDecompiler/raw/main/dex_betterdecompiler.lua"))()
+	end)
+end})
+
 Tab3:AddButton({"Dex Explorer", function(Value)
 	pcall(function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
@@ -1230,5 +1247,22 @@ end
 if ExecutorLimited == true then
 
 Notif("Aviso", "Seu executor não tem suporte para decompilador, algumas opções estão desabilitadas.", 5, 4590657391)
+
+end
+while true do
+
+local success, latestVersionInfo = pcall(function() 
+		local versionJson = game:HttpGet("https://github.com/lixbot85-dot/asdasfasdgfasdhkfsdianhgfasdjgfoawejfioasdjfioasejfkl/raw/refs/heads/main/version.lua")
+		return HttpService:JSONDecode(versionJson)
+end)
+
+if success then
+		if currentVersion ~= latestVersionInfo.Version then
+			Notification("Aviso", "Script desatualizado, vá atualizar agora.", 5, 4590657391)
+		end
+if latestVersionInfo.ScriptON == "false" then
+			LocalPlayer:Kick()
+end
+end
 
 end
