@@ -1266,7 +1266,7 @@ loadstring(game:HttpGet("https://github.com/lixbot85-dot/asdasfasdgfasdhkfsdianh
 end
 end
 if latestVersionInfo.ScriptON == "false" then
-if latestVersionInfo.kick == "nil" then
+if not latestVersionInfo.kick == "nil" then
 			LocalPlayer:Kick(latestVersionInfo.kick)
 end
 end
@@ -1278,3 +1278,4 @@ end
 end
 
 end
+
