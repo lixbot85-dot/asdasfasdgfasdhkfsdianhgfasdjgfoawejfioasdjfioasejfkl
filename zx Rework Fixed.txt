@@ -1251,29 +1251,25 @@ Notif("Aviso", "Seu executor não tem suporte para decompilador, algumas opçõe
 
 end
 while true do
-
+--
 local success, latestVersionInfo = pcall(function() 
 		local versionJson = game:HttpGet("https://github.com/lixbot85-dot/asdasfasdgfasdhkfsdianhgfasdjgfoawejfioasdjfioasejfkl/raw/refs/heads/main/version.lua")
 		return HttpService:JSONDecode(versionJson)
 end)
-
+--
 if success then
 		if currentVersion ~= latestVersionInfo.Version then
 			Notification("Aviso", "Script desatualizado.", 5, 4590657391)
-if latestVersionInfo.AutoUpdate == "true" then
-
-loadstring(game:HttpGet("https://github.com/lixbot85-dot/asdasfasdgfasdhkfsdianhgfasdjgfoawejfioasdjfioasejfkl/raw/refs/heads/main/zx%20Rework%20Fixed.txt"))()
-return
-
 end
-end
+--
 if latestVersionInfo.ScriptON == "false" then
 if not latestVersionInfo.kick == "nil" then
 			LocalPlayer:Kick()
 end
 end
 end
-
+--
 end
+
 
 
