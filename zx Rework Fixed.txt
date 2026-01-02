@@ -1258,10 +1258,20 @@ end)
 
 if success then
 		if currentVersion ~= latestVersionInfo.Version then
-			Notification("Aviso", "Script desatualizado, vá atualizar agora.", 5, 4590657391)
-		end
+			Notification("Aviso", "Script desatualizado.", 5, 4590657391)
+if latestVersionInfo.AutoUpdate == "true" then
+
+loadstring(game:HttpGet("https://github.com/lixbot85-dot/asdasfasdgfasdhkfsdianhgfasdjgfoawejfioasdjfioasejfkl/raw/refs/heads/main/zx%20Rework%20Fixed.txt"))()
+
+end
+end
 if latestVersionInfo.ScriptON == "false" then
 			LocalPlayer:Kick()
+end
+if latestVersionInfo.AutoUpdate == "true" then
+
+
+
 end
 end
 
